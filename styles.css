@@ -1,0 +1,11 @@
+#game {
+  width:400px;
+  height:400px;
+  margin:0 auto;
+  background-color:#eee;
+}
+h2 {
+  text-align:center;
+  font-family:Arial;
+  font-size:36px;
+} 
