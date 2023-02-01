@@ -29,9 +29,6 @@ function moveSnake() {
   while (snakeSegments.length > snakeLength) {
     snakeSegments.pop();
   }
-  
-  // While the snake is moving, check if it collided with the dots, wall or tail
-  checkCollision();
 }
 
 // Draw (and re-draw) the snake for every frame of the game
@@ -45,9 +42,10 @@ function drawSnake() {
 
 // Game loop so the game updates every 100 milliseconds with new info such as the snake's location or directions.
 function gameLoop() {
-  drawSnake();
   moveSnake();
+  drawSnake();
   spawnDots();
+  checkCollision();
   if(!gameEnded) {
     setTimeout(gameLoop, 100);
   }
@@ -91,7 +89,7 @@ function spawnDots() {
   }
 }
 
-// Called when the snake collides with a wall, food piece, or its own tail
+// Check if the snake collided with the dots, wall or tail
 function checkCollision() {
   // Check if the snake hit any of the dots
   for (var i = 0; i < dots.length; i++) {
